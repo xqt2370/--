@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="林墨的个人名片">
+    <title>林墨 | 个人名片</title>
+    <!-- 引入独立的 CSS 样式文件，保持 HTML 结构与样式分离 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 页面主内容区域，用于承载居中的个人名片 -->
+    <main class="page-wrapper">
+        <!-- 个人名片卡片 -->
+        <article class="profile-card">
+            <!-- 头像区域，使用圆形图片展示个人形象 -->
+            <img
+                class="avatar"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=240&q=85"
+                alt="林墨的头像"
+            >
+
+            <!-- 个人基本信息 -->
+            <div class="profile-intro">
+                <p class="eyebrow">PERSONAL CARD</p>
+                <h1>林墨</h1>
+                <p class="job-title">独立设计师 · 前端开发者</p>
+                <p class="bio">专注于打造简洁、易用且有温度的数字体验。</p>
+            </div>
+
+            <!-- 联系方式列表 -->
+            <address class="contact-list">
+                <a class="contact-item" href="mailto:linmo@example.com">
+                    <span class="contact-icon" aria-hidden="true">✉</span>
+                    <span>linmo@example.com</span>
+                </a>
+                <a class="contact-item" href="tel:+8613800138000">
+                    <span class="contact-icon" aria-hidden="true">☎</span>
+                    <span>+86 138 0013 8000</span>
+                </a>
+                <a class="contact-item" href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                    <span class="contact-icon" aria-hidden="true">⌘</span>
+                    <span>github.com/linmo</span>
+                </a>
+            </address>
+
+            <!-- 名片底部的地点信息 -->
+            <footer class="card-footer">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span>目前在上海工作</span>
+            </footer>
+        </article>
+    </main>
+</body>
+</html>

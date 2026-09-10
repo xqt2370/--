@@ -1,0 +1,157 @@
+/* ==================== 基础样式与色彩变量 ==================== */
+:root {
+    --page-background: #eef3f1;
+    --card-background: #ffffff;
+    --primary-text: #1e2d2a;
+    --secondary-text: #6f7c78;
+    --accent-color: #4f8a78;
+    --line-color: #e3ebe7;
+    --card-radius: 12px;
+}
+
+/* 统一盒模型，避免内外边距影响元素尺寸计算 */
+* {
+    box-sizing: border-box;
+}
+
+/* 清除浏览器默认边距，并设置页面基础字体 */
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--primary-text);
+    background: var(--page-background);
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 使用弹性布局让名片在页面中水平、垂直居中 */
+.page-wrapper {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+/* 名片主体：12px 圆角、柔和阴影，以及悬停上浮动画 */
+.profile-card {
+    width: min(100%, 390px);
+    padding: 42px 36px 28px;
+    text-align: center;
+    background: var(--card-background);
+    border-radius: var(--card-radius);
+    box-shadow: 0 18px 45px rgba(42, 70, 61, 0.12), 0 3px 10px rgba(42, 70, 61, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 鼠标悬停时让卡片轻微上浮，并增强阴影层次 */
+.profile-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 55px rgba(42, 70, 61, 0.16), 0 5px 14px rgba(42, 70, 61, 0.08);
+}
+
+/* 头像保持正方形并裁剪为圆形 */
+.avatar {
+    display: block;
+    width: 112px;
+    height: 112px;
+    margin: 0 auto 24px;
+    object-fit: cover;
+    border: 5px solid #f0f6f3;
+    border-radius: 50%;
+}
+
+/* 小型英文标签，用于建立信息层级 */
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--accent-color);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* 姓名是名片中的主要视觉焦点 */
+.profile-intro h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.job-title {
+    margin: 10px 0 0;
+    color: var(--secondary-text);
+    font-size: 15px;
+}
+
+.bio {
+    max-width: 260px;
+    margin: 14px auto 0;
+    color: var(--secondary-text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* 联系方式区域通过上边框与个人简介分隔 */
+.contact-list {
+    display: grid;
+    gap: 12px;
+    margin: 30px 0 0;
+    padding: 24px 0 0;
+    font-style: normal;
+    border-top: 1px solid var(--line-color);
+}
+
+/* 联系方式使用整行可点击区域，方便鼠标和触屏操作 */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--secondary-text);
+    font-size: 13px;
+    text-align: left;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-item:hover {
+    color: var(--accent-color);
+}
+
+.contact-icon {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 28px;
+    color: var(--accent-color);
+    background: #eef6f2;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+/* 卡片底部状态信息 */
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 28px;
+    color: #9aa8a3;
+    font-size: 12px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    background: #72b394;
+    border-radius: 50%;
+}
+
+/* 在窄屏设备上适当收紧卡片内边距，避免内容拥挤 */
+@media (max-width: 420px) {
+    .profile-card {
+        padding: 34px 24px 24px;
+    }
+}
