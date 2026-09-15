@@ -118,6 +118,13 @@ body {
     color: var(--accent-color);
 }
 
+/* 键盘访问联系方式时提供清晰的焦点提示 */
+.contact-item:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
 .contact-icon {
     display: inline-flex;
     width: 28px;
@@ -153,5 +160,13 @@ body {
 @media (max-width: 420px) {
     .profile-card {
         padding: 34px 24px 24px;
+    }
+}
+
+/* 用户选择减少动态效果时，关闭悬停过渡 */
+@media (prefers-reduced-motion: reduce) {
+    .profile-card,
+    .contact-item {
+        transition: none;
     }
 }
