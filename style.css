@@ -1,0 +1,142 @@
+/* 基础变量：集中管理页面的颜色、间距和圆角 */
+:root {
+  --page-bg: #eef2f1;
+  --card-bg: #ffffff;
+  --text-main: #1f2d2b;
+  --text-muted: #71807c;
+  --accent: #4d8b7b;
+  --accent-soft: #e4f0ec;
+  --line: #e6ecea;
+  --card-radius: 12px;
+  --shadow: 0 18px 45px rgba(39, 66, 60, 0.12);
+}
+
+/* 统一盒模型，并让页面至少占满整个视口高度 */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text-main);
+  background: var(--page-bg);
+  font-family: "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 页面容器负责完成名片的水平与垂直居中 */
+.page-shell {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* 名片卡片：12px 圆角、柔和阴影，以及悬停上浮动画 */
+.business-card {
+  width: min(100%, 390px);
+  padding: 42px 36px 34px;
+  text-align: center;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.business-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 52px rgba(39, 66, 60, 0.17);
+}
+
+/* 圆形头像使用渐变色块与姓名首字母，保持页面独立可用 */
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 22px;
+  color: #ffffff;
+  background: linear-gradient(145deg, #76aa9c, #3e7769);
+  border: 6px solid var(--accent-soft);
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.profile h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.job-title {
+  margin: 8px 0 16px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.intro {
+  max-width: 270px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 联系方式用细分隔线组织信息，方便快速扫描 */
+.contact-list {
+  display: grid;
+  gap: 12px;
+  margin: 30px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-style: normal;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 24px;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.contact-item:hover {
+  color: var(--accent);
+}
+
+.contact-icon {
+  display: inline-grid;
+  flex: 0 0 24px;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* 小屏幕下收紧内边距，避免卡片内容贴近屏幕边缘 */
+@media (max-width: 420px) {
+  .page-shell {
+    padding: 16px;
+  }
+
+  .business-card {
+    padding: 34px 24px 28px;
+  }
+}
